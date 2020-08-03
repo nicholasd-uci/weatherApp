@@ -37,11 +37,12 @@
 
             // we always want to add ** https:// to all api's -- ALWAYS. -->
             // once we determined the .then&.catch functions we moved to the temp literal. Then we were able to make a function let city = the value of city on line 13/14 //
+            // **This is just the day's URL weather** //
             axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=606e8adf3bbd843811975dde31618837`)            
                 .then(res => {
                     console.log(res.data)
                     // document = render from outside of the script tags. grabbing ('Whatever') by getElementById and making it active by setting up a  .innerHTML to the end of it --> 
-                    // then use a Temp Literal//
+                    // then use a Temp Literal// 
                     document.getElementById('weather').innerHTML = `
                     <h1>City Name: ${res.data.name}</h1>
                     <h5>Temperature: ${res.data.main.temp}</h5>
@@ -55,8 +56,10 @@
                 })
 
                 .catch(err => {
-                    console.log(err)
-                })
+                    console.log(err)})
+                
+                // this is the 5 day URL forcast //
+                axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=606e8adf3bbd843811975dde31618837`)
 
 
         })
