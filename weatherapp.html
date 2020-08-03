@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
 
-    
+<body>
+
+    <div id="weather"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+
+
+
+        // we always want to add ** https:// to all api's -- ALWAYS. -->
+        axios.get('https://api.openweathermap.org/data/2.5/weather?q=Irvine&appid=606e8adf3bbd843811975dde31618837')
+            .then(res => {
+                // document = render from outside of the script tags. grabbing ('Whatever') by getElementById and making it active by setting up a  .innerHTML to the end of it --> 
+                                                                    // then use a Temp Literal//
+                document.getElementById('weather').innerHTML = `
+                    <h1>City Name: ${weather.name}</h1>
+                    <h2>Weather: ${}<h2>
+
+                `
+
+            })
+
+            .catch(err => {
+                console.log(err)
+            })
+            
+
+
+    </script>
+
+
 </body>
+
 </html>
