@@ -8,22 +8,41 @@
 </head>
 
 <body>
+    <!-- We want to create a form and lables, input and a button. -->
+    <form>
+        <p>
+            <label for="city">City</label>
+            <input type="text" name="city" id="city">
+        </p>
+        <p>
+            <button id="search">Search Here</button>
+        </p>
+    </form>
 
+    <!-- This is a weather ID for the purpose of ?? -->
     <div id="weather"></div>
 
+
+    <!-- I got this off of the axioz git hub page. -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
 
+        // this is was added to give BUTTON line 17 --> a clickable event by .getElementById() & then .addEventListener to make that button a clickable button. //
+        document.getElementById('search').addEventListener('click', event => {
+            // this is so when you serach for a city... it does not refresh the page once it renders //
+            event.preventDefault()
 
+            let city = document.getElementById('city').value
 
-        // we always want to add ** https:// to all api's -- ALWAYS. -->
-        axios.get('https://api.openweathermap.org/data/2.5/weather?q=Irvine&units=imperial&appid=606e8adf3bbd843811975dde31618837')
-            .then(res => {
-                console.log(res.data)
-                // document = render from outside of the script tags. grabbing ('Whatever') by getElementById and making it active by setting up a  .innerHTML to the end of it --> 
-                                                                    // then use a Temp Literal//
-                document.getElementById('weather').innerHTML = `
+            // we always want to add ** https:// to all api's -- ALWAYS. -->
+            // once we determined the .then&.catch functions we moved to the temp literal. Then we were able to make a function let city = the value of city on line 13/14 //
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=606e8adf3bbd843811975dde31618837`)            
+                .then(res => {
+                    console.log(res.data)
+                    // document = render from outside of the script tags. grabbing ('Whatever') by getElementById and making it active by setting up a  .innerHTML to the end of it --> 
+                    // then use a Temp Literal//
+                    document.getElementById('weather').innerHTML = `
                     <h1>City Name: ${res.data.name}</h1>
                     <h5>Temperature: ${res.data.main.temp}</h5>
                     <h5>Humidity: ${res.data.main.humidity}</h5>
@@ -31,14 +50,20 @@
                     <h5>UV Index: ${''}</h5>
 
                 `
-                // need to figure out how to get the temps in F-Degree  //
-                // we found the answer in the API key doc. we had to add " &units=imperial " // 
-            })
+                    // need to figure out how to get the temps in F-Degree  //
+                    // we found the answer in the API key doc. we had to add " &units=imperial " // 
+                })
 
-            .catch(err => {
-                console.log(err)
-            })
-            
+                .catch(err => {
+                    console.log(err)
+                })
+
+
+        })
+
+
+
+
 
 
     </script>
