@@ -1,4 +1,6 @@
-
+// <!-- **START NOTE** I was working on this in a group with others. I have changed variables and tried to play around with the concept and functions. **END NOTE**  -->
+        
+        
         // this is was added to give BUTTON line 17 --> a clickable event by .getElementById() & then .addEventListener to make that button a clickable button. //
         document.getElementById('search').addEventListener('click', event => {
             // this is so when you serach for a city... it does not refresh the page once it renders //
@@ -47,8 +49,7 @@
                         <h3>City Name: ${forecaster[i].dt_txt}</h3>
                         <h5>Temperature: ${forecaster[i].main.temp}</h5>
                         <h5>Humidity: ${forecaster[i].main.humidity}</h5>
-                        <h5>Wind Speed: ${forecaster[i].wind.speed}</h5>
-                        <h5>UV Index: ${''}</h5>            
+                        <h5>Wind Speed: ${forecaster[i].wind.speed}</h5>           
                         `
                         // after we MAKE IT we need to grab the forecaster div --> then append it to the bottom of page //
                         document.getElementById('forecaster').append(forecasterElem)
@@ -57,5 +58,26 @@
                 .catch(err => { console.log(err) })
                 // Ends 2nd axios.get    //
         })
+
+      
+        let uvIndex = document.getElementById('uvIndex').value
+      
+        axios.get(`http://api.openweathermap.org/data/2.5/uvi?appid=606e8adf3bbd843811975dde31618837&lat={lat}&lon={lon}`)
+            .then(res => {
+
+                let uvIndex = res.data.coord
+                for (let i = 5; i < uvIndex.length; i += 8) {
+
+                let uvIndex = document.createElement('div')
+
+                uvIndexElem.innerHTML = `
+                <h5>UV Index: ${uvIndex[i].coord}</h5> 
+                `
+            }
+        })
+            .catch(err => { console.log(err) })
+
+
+            
 
 
