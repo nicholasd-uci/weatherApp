@@ -21,6 +21,7 @@
 
     <!-- This is a weather ID for the purpose of ?? -->
     <div id="weather"></div>
+    <div id="forecaster"></div>
 
 
     <!-- I got this off of the axioz git hub page. -->
@@ -55,22 +56,40 @@
                     // we found the answer in the API key doc. we had to add " &units=imperial " // 
                 })
 
-                .catch(err => {
-                    console.log(err)})
+                .catch(err => { console.log(err) })
+                // End of axios.get   //
                 
                 // this is the 5 day URL forcast //
                 axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=606e8adf3bbd843811975dde31618837`)
+                .then(res =>{ 
+                    // we make this let = to res.data.list for the calling of the 5 day window forcast //
+                    let forecaster = res.data.list
 
-
+                    // Make a for loop to start our forcast to loop over the days in the list: 
+                    // we then set i to 5 for it being 5 o'clock and increase by 8 in the list, for each 5PM 4 5days
+                    for (let i = 5; i < forecaster.length; i += 8) {
+                        // we want to see in the console log our for loop working //
+                        console.log(forecaster[i])
+                        // let forecasterElem = --> this half to create it into the div on line 24 //
+                        let forecasterElem = document.createElement('div')
+                        // set the innerHTML so that it shows on the page //
+                        forecasterElem.innerHTML = `
+                        <h3>City Name: ${forecaster[i].dt_txt}</h3>
+                        <h5>Temperature: ${forecaster[i].main.temp}</h5>
+                        <h5>Humidity: ${forecaster[i].main.humidity}</h5>
+                        <h5>Wind Speed: ${forecaster[i].wind.speed}</h5>
+                        <h5>UV Index: ${''}</h5>            
+                        `
+                        // after we MAKE IT --> we still have to append it onto the page //
+                        document.getElementById('forecaster').append(forecasterElem)
+                    }
+                })
+                .catch(err => { console.log(err) })
+                // Ends 2nd axios.get    //
         })
 
 
-
-
-
-
     </script>
-
 
 </body>
 
