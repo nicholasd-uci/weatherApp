@@ -6,3 +6,12 @@ h1 {
     text-align: center;
     padding: 15px;
 }
+
+.cardCaster {
+    text-align: center;
+    border-style: solid;
+    max-width: 200px;
+    float: left;
+    margin-right: 20px;
+    background-color: lightskyblue;
+}
