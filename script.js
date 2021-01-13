@@ -28,8 +28,6 @@ $(document).ready(function () {
           makeHistory(city);
         }
 
-
-
         console.log(res.data)
         // document = render from outside of the script tags. grabbing ('Whatever') by getElementById and making it active by setting up a  .innerHTML to the end of it --> 
         // then use a Temp Literal// 
@@ -47,41 +45,30 @@ $(document).ready(function () {
         getUVIndex(res.data.coord.lat, res.data.coord.lon)
 
       })
-
       .catch(err => { console.log(err) })
-    // End of axios.get   //
 
-    // this is the 5 day URL forcast //
     axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=606e8adf3bbd843811975dde31618837`)
       .then(res => {
-        // we make this let = to res.data.list for the calling of the 5 day window forcast //
         let forecaster = res.data.list
-
-        // Make a for loop to start our forcast to loop over the days in the list: 
-        // we then set i to 5 for it being 5 o'clock and increase by 8 in the list, for each 5PM 4 5days
         for (let i = 5; i < forecaster.length; i += 8) {
-          // we want to see in the console log our for loop working //
           console.log(forecaster[i])
-          // let forecasterElem = --> this half to create it into the div on line 24 //
+          
           let forecasterElem = document.createElement('div')
-          // set the innerHTML so that it shows on the page //
           forecasterElem.innerHTML = `
                         <div class="cardCaster">
-                          <h3>City Name: ${forecaster[i].dt_txt}</h3>
+                          <h3>Forecast Date: ${forecaster[i].dt_txt}</h3>
                           <h5>Temperature: ${forecaster[i].main.temp}</h5>
                           <h5>Humidity: ${forecaster[i].main.humidity}</h5>
                           <h5>Wind Speed: ${forecaster[i].wind.speed}</h5>     
                         </div>      
                         `
-          // after we MAKE IT we need to grab the forecaster div --> then append it to the bottom of page //
+
           document.getElementById('forecaster').append(forecasterElem)
         }
       })
       .catch(err => { console.log(err) })
-    // Ends 2nd axios.get    //
   })
 
-  //   we are padding lat, lon as parameters //
   function getUVIndex(lat, lon) {
     $.ajax({
       type: "GET",
