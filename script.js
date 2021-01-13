@@ -115,12 +115,5 @@ $(document).ready(function () {
 
 
 
-        //   this is for temp literal and you can import JS values into your HTML
-            //  document.getElementById('x') = `
-            //          ${}
-            //          ${}
-            //          ${}
-            //          ${}
-            // `
 
 

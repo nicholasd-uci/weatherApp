@@ -1,4 +1,6 @@
-/* <!-- **START NOTE** I was working on this in a group with others. I have changed variables and tried to play around with the concept and functions. **END NOTE**  --> */
+body {
+    background-color: blanchedalmond;
+}
 
 h1 {
     background-color:black;
@@ -7,11 +9,24 @@ h1 {
     padding: 15px;
 }
 
+.list-group {
+   padding-bottom: 25px;
+}
+
+#data{
+    text-align: center;
+}
+
 .cardCaster {
     text-align: center;
+    align-content: center;
     border-style: solid;
     max-width: 200px;
     float: left;
-    margin-right: 20px;
+    margin-left: 125px;
     background-color: lightskyblue;
+}
+
+.dayCard{
+    padding-top: 15px;
 }

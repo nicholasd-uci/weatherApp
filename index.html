@@ -10,17 +10,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
     <title>Weather Dashboard</title>
 </head>
-
 
 <body>
     <header class="container-fluid p-2">
         <h1>Weather Dashboard</h1>
     </header>
-
-    <!-- We want to create a form and lables, input and a button. -->
 
     <div class="container-fluid">
         <div class="row">
@@ -32,7 +28,7 @@
                         <button class="btn btn-primary" id="search">Search</button>
                     </div>
 
-                    <ul class="list-group history"></ul>
+                    <ul class="list-group history"> Recent History</ul>
             </aside>
 
             <div class="col-lg-9">
@@ -40,14 +36,13 @@
             </div>
         </div>
     </div>
-
-
+    <hr>
     <!-- This is a weather ID for the purpose of ?? -->
-    <div id="weather"></div>
-
-    <p id="uvIndex"></p>
-
-    <div id="forecaster"></div>
+    <div id="data" class="container-fluid">
+        <div id="weather"></div>
+        <p id="uvIndex"></p>
+        <div id="forecaster"></div>
+    </div>
 
     <!-- This is the bootstrap JQ - Found on Bootstrap.com -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
