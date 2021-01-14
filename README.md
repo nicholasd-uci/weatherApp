@@ -25,8 +25,8 @@
 ![gif](./photos/gif.gif)
 
 ## LINKS
-* [weatherApp link](https://nicholasd-uci.github.io/weatherApp/)
-* [GitHub Repo Link](https://github.com/nicholasd-uci/weatherApp)
+- [weatherApp link](https://nicholasd-uci.github.io/weatherApp/)
+- [GitHub Repo Link](https://github.com/nicholasd-uci/weatherApp)
 - [Nicholas Dallas GitHub](https://github.com/nicholasd-uci)
 
 - - -
