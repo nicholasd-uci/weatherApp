@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 
   function makeHistory(text) {
-    var li = $("<li>").addClass("list-group-item list-group-item-action").text(text);
+    var li = $("<li>").addClass("list-group-item list-group-item-action").text(text)
     $(".history").append(li)
   }
 
@@ -18,10 +18,10 @@ $(document).ready(function () {
       .then(res => {
 
         if (history.indexOf(city) === -1) {
-          history.push(city);
-          localStorage.setItem("history", JSON.stringify(history));
+          history.push(city)
+          localStorage.setItem("history", JSON.stringify(history))
 
-          makeHistory(city);
+          makeHistory(city)
         }
         // Weather API data Info
         console.log(res.data)
@@ -67,30 +67,29 @@ $(document).ready(function () {
       dataType: "json",
       success: function (data) {
         console.log(data)
-        var uv = $("#uvIndex").text("UV Index: ");
-        var btn = $("<span>").addClass("btn btn-sm").text(data.value);
+        var uv = $("#uvIndex").text("UV Index: ")
+        var btn = $("<span>").addClass("btn btn-sm").text(data.value)
         // change color depending on uv value
         if (data.value < 3) {
-          btn.addClass("btn-success");
+          btn.addClass("btn-success")
         }
         else if (data.value < 7) {
-          btn.addClass("btn-warning");
+          btn.addClass("btn-warning")
         }
         else {
-          btn.addClass("btn-danger");
+          btn.addClass("btn-danger")
         }
-        $("#uvIndex").append(uv.append(btn));
+        $("#uvIndex").append(uv.append(btn))
       }
-    });
+    })
   }
 
-  var history = JSON.parse(window.localStorage.getItem("history")) || [];
+  var history = JSON.parse(window.localStorage.getItem("history")) || []
   for (var i = 0; i < history.length; i++) {
-    makeHistory(history[i]);
+    makeHistory(history[i])
   }
 
-});
-
+})
 
 
 
