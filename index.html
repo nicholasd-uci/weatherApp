@@ -15,24 +15,24 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <div id="" class="container-fluid">
-        <div class="row">
-            <aside class="col-lg-3 bg-light">
-                <div>
-                    <label for="city"> Search for a City:</label>
-                    <div class="form-inline form-group">
-                        <input class="form-control" type="text" name="city" id="city">
-                        <button class="btn btn-primary" id="search">Search</button>
+    <div id="cityBox" class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 bg-light">
+                    <div>
+                        <label for="city"> Search for a City:</label>
+                        <div class="form-inline form-group">
+                            <input class="form-control" type="text" name="city" id="city">
+                            <button class="btn btn-primary" id="search">Search</button>
+                        </div>
+
+                        <ul class="list-group history"> Recent History</ul>
                     </div>
-
-                    <ul class="list-group history"> Recent History</ul>
-            </aside>
-
-            <div class="col-lg-9">
-                <div id="today" class="mt-3"></div>
+                    <div class="col-lg-9">
+                        <div id="today" class="mt-3"></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+    </div>  
     <hr>
     <!-- This is a weather ID for the purpose of ?? -->
     <div id="data" class="container-fluid">
