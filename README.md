@@ -28,7 +28,7 @@
 
 - [weatherApp Deployed](https://nicholasd-uci.github.io/weatherApp/)
 - [GitHub Repo Link](https://github.com/nicholasd-uci/weatherApp)
-- [Nicholas Dallas GitHub](https://github.com/nicholasd-uci)
+- [Nicholas Dallas's GitHub](https://github.com/nicholasd-uci)
 
 - - -
 © 2020 NPRD, Nicholas Paul Ruiz Dallas
