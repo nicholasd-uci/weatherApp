@@ -26,7 +26,7 @@
 
 ## LINKS
 
-- [weatherApp link](https://nicholasd-uci.github.io/weatherApp/)
+- [weatherApp Deployed](https://nicholasd-uci.github.io/weatherApp/)
 - [GitHub Repo Link](https://github.com/nicholasd-uci/weatherApp)
 - [Nicholas Dallas GitHub](https://github.com/nicholasd-uci)
 
